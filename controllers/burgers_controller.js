@@ -25,7 +25,7 @@ router.get('/burgers', function (req, res) {
 router.post('/burgers/insertOne', function (req, res) {
   var newBurger = req.body.name;
   model.burger.create({
-    burger_name: newBurger,
+    burgerName: newBurger,
     devoured: false
   })
   .then(function () {
