@@ -1,6 +1,5 @@
-/*
-Here is where you create all the functions that will do the routing for your app, and the logic of each route.
-*/
+// create all the functions that will do the routing for the app,
+//and the logic of each route.
 var express = require('express');
 var router = express.Router();
 var model = require('../models');
@@ -25,7 +24,7 @@ router.get('/burgers', function (req, res) {
 router.post('/burgers/insertOne', function (req, res) {
   var newBurger = req.body.name;
   model.burger.create({
-    burgerName: newBurger,
+    burger_name: newBurger,
     devoured: false
   })
   .then(function () {
