@@ -8,22 +8,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.INTEGER
-      },
       burger_name: {
         type: Sequelize.STRING
       },
       devoured: {
         type: Sequelize.BOOLEAN
+        defaultValue: false
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.STRING,
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.STRING,
+        allowNull: false
       }
     });
   },

@@ -19,7 +19,8 @@
     "mvc",
     "controllers",
     "views",
-    "handlebars"
+    "handlebars",
+    "sequelize"
   ],
   "author": "Christi Savino",
   "license": "ISC",
