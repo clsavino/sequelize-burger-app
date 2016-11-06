@@ -3,26 +3,32 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../models');
+var debug = require('debug')('express-example');
 
-model.burger.sync({force:true});
-
+//model.burger.sync({force:true});
+model.burger.sync();
 //root route redirect to /burgers
 router.get('/', function (req, res) {
+  debug('\n\nin root route\n');
   res.redirect('/burgers');
 });
 
 // display all burgers route
 router.get('/burgers', function (req, res) {
-  model.burger.findAll()
-  .then(function(data) {
-    res.render("index", {burger : data});
+  model.burger.findAll({}).then(function(data) {
+    console.log('data',data);
+    var hbsObject = {burgers:data};
+    console.log('hbsObject',hbsObject);
+    res.render("index", {burgers : data});
   });
 });
 
 
 // Insert route inserts new burger in database - '/burgers/new'
 router.post('/burgers/insertOne', function (req, res) {
-  var newBurger = req.body.name;
+  console.log('req.body',req.body);
+  var newBurger = req.body.burger_name;
+  console.log('newBurger',newBurger);
   model.burger.create({
     burger_name: newBurger,
     devoured: false
