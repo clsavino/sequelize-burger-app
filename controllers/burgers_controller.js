@@ -3,9 +3,11 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../models');
+var connection = require('../config/connection.js');
 
 //model.burger.sync({force:true});
 model.burger.sync();
+
 //root route redirect to /burgers
 router.get('/', function (req, res) {
   res.redirect('/burgers');
